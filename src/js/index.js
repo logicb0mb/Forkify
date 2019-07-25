@@ -1,3 +1,4 @@
 // Global app controller
 import num from './test';
-console.log(`Successfully imported ${num}`);
+const x = 23;
+console.log(`Successfully imported ${num}.Variable x is ${x}.`);
