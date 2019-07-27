@@ -61,19 +61,27 @@ const renderButtons = (page, numResults, resPerPage) => {
 
     const pages = Math.ceil(numResults / resPerPage);
     let button;
-    if(page === 1 && pages> 1) {
-        //Only Button to go to the next page
-        button = createButton(page,'next');
-    } else if(page < pages) {
-        // Both pages
-        button = `
-                ${createButton(page,'prev')}
-                ${createButton(page,'next')}
-        `;   
-    }else if(page === pages && pages> 1) {
-        //Only Button to go to the prev page
-        button = createButton(page,'prev');
+
+    if(pages !== 1){
+        
+        if(page === 1 && pages > 1) {
+            //Only Button to go to the next page
+            button = createButton(page,'next');
+        } else if(page < pages) {
+            // Both pages
+            button = `
+                    ${createButton(page,'prev')}
+                    ${createButton(page,'next')}
+            `;   
+        }else if(page === pages && pages> 1) {
+            //Only Button to go to the prev page
+            button = createButton(page,'prev');
+        }
+
+    }else{
+        button = '';
     }
+
 
     elements.searchResPages.insertAdjacentHTML('afterbegin',button);
 };
