@@ -79,7 +79,7 @@ const renderButtons = (page, numResults, resPerPage) => {
         }
 
     }else{
-        button = '';
+        button = '';   // BUG FIXED: Pagination page 1 undefined was getting displayed as button was getting value of undefined can also be done by directly setting button = '';
     }
 
 
