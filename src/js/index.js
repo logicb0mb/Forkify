@@ -18,7 +18,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
 */
 
 const state = {};
-window.state= state;
+
 
 //SEARCH CONTROLLER
 const controlSearch =async () => {
@@ -73,13 +73,10 @@ elements.searchRes.addEventListener('click',e => {
 });
 
 
-
-
 //RECIPE CONTROLLER
 const controlRecipe = async () => {
     // 1. Get the ID from the URL
     const id = window.location.hash.replace('#','');
-    console.log(id); 
 
     if(id) {
         // Prepare the UI for changes
@@ -121,12 +118,10 @@ const controlRecipe = async () => {
 
 };
 
-
 ['hashchange','load'].forEach( event => window.addEventListener(event, controlRecipe));
 
 
 //List Controller
-
 const controlList = () => {
     
     //Create a list If there is none yet
@@ -139,6 +134,7 @@ const controlList = () => {
         listView.renderItem(item);
     }); 
 }
+
 
 // Handle delete and update list item events
 elements.shopping.addEventListener('click', e => {
@@ -160,7 +156,6 @@ elements.shopping.addEventListener('click', e => {
         state.list.updateCount(id, val);
     }
 });
-
 
 
 //  LIKE CONTROLLER
@@ -199,6 +194,7 @@ const controlLike = () => {
 
 };
 
+
 //Restore liked recipes on page load
 window.addEventListener('load', () => {
     
@@ -214,8 +210,8 @@ window.addEventListener('load', () => {
     state.likes.likes.forEach( like => likesView.renderLike(like));
 });
 
-//HANDLING RECIPE BUTTON CLICKS
 
+//HANDLING RECIPE BUTTON CLICKS
 elements.recipe.addEventListener('click',e => {
     if(e.target.matches('.btn-decrease, .btn-decrease *')){
         //Decrease button is clicked
